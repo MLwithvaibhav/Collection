@@ -1,0 +1,42 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+public class StreamAPI {
+
+    public static void main(String[] args) {
+        
+        List<Integer> nums = Arrays.asList(7,5,6,2,8,1);
+
+        // Stream<Integer> data = nums.stream();
+        // Stream<Integer> sortedData = data.sorted();
+        // sortedData.forEach(n-> System.out.println(n));
+
+
+        // map function or sort function gives you a new stream.
+        // Stream<Integer> data = nums.stream();
+        // Stream<Integer> mappedData = data.map(n-> n*2);
+        // mappedData.forEach(n-> System.out.println(n));
+
+
+        Predicate<Integer> predi = new Predicate<Integer>() {
+            
+            public boolean test(Integer n){
+                if(n%2==1){
+                    return true;
+
+                }
+                else{
+                    return false;
+                }
+            }
+        };
+        nums.stream()
+            .filter(predi)
+            .sorted()
+            .map(n->n*2)
+            .forEach(n->System.out.println(n));
+    
+}
+}

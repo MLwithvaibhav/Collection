@@ -1,7 +1,5 @@
-public class Computer {
+public interface Computer {
 
-    public void code(){
-
-    }
+     void code();
     
 }

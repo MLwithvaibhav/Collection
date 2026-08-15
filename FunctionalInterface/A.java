@@ -2,5 +2,5 @@ package FunctionalInterface;
 
 @FunctionalInterface
 interface A {
-    void show();
+    void show(int i);
 }

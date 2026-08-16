@@ -23,6 +23,10 @@ public class A {
         {
             System.out.println("Stay in your limits" + e);
         }
+        catch(Exception e)
+        {
+            System.out.println("Some other exception" + e);
+        }
         System.out.println(j);
         System.out.println("Bye");
     }

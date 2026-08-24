@@ -7,8 +7,11 @@ public class Demo {
 
         A obj = new A();
         B obj1 = new B();
-        obj.start();
-        obj1.start();
+        
+        Thread t1 = new Thread(obj);
+        Thread t2 = new Thread(obj1);
+        t1.start();
+        t2.start();
 
     }
     

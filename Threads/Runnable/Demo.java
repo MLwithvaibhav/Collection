@@ -5,13 +5,46 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        A obj = new A();
-        B obj1 = new B();
+        Counter c = new Counter();
+
+        Runnable obj = ()-> {
+        for(int i = 0; i<100; i++){
+            c.increment();
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        
+    };
+        Runnable obj1 = ()-> {
+        for(int i = 0; i<10; i++){
+            c.increment();
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        
+    };
+        
         
         Thread t1 = new Thread(obj);
         Thread t2 = new Thread(obj1);
         t1.start();
         t2.start();
+
+        t1.join();
+        t2.join();
+
+        System.out.println(c.count);
 
     }
     
